@@ -10,4 +10,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class MovieDTO {
+    private String movieId;
+    private String movieTitle;
+    private String director;
+
 }

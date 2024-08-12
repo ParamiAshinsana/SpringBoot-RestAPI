@@ -1,6 +1,7 @@
 package org.example2.springdemo.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,6 +13,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "customer")
+@Table(name = "movie")
 public class MovieEntity {
+    @Id
+    private String movieId;
+    private String movieTitle;
+    private String director;
 }
