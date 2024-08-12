@@ -10,13 +10,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories
 public class SpringDemoApplication {
 
-	@Bean
-	ModelMapper modelMapper(){
-		return new ModelMapper();
-	}
+//	@Bean
+//	ModelMapper modelMapper(){
+//		return new ModelMapper();
+//	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringDemoApplication.class, args);
+		System.out.println("hello parami");
 	}
 
 }
