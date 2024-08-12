@@ -3,6 +3,7 @@ package org.example2.springdemo.service.impl;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.example2.springdemo.dto.MovieDTO;
+import org.example2.springdemo.entity.MovieEntity;
 import org.example2.springdemo.mapping.MovieMapping;
 import org.example2.springdemo.repository.MovieRepository;
 import org.example2.springdemo.service.MovieService;
@@ -19,7 +20,10 @@ public class MovieServiceIMPL implements MovieService {
 
     @Override
     public MovieDTO saveMovie(MovieDTO movieDTO) {
-        return null;
+        MovieEntity movieEntity = movieMapping.toMovie(movieDTO);
+
+        movieEntity = movieRepository.save(movieEntity);
+        return movieMapping.toMovieDTO(movieEntity);
     }
 
     @Override
