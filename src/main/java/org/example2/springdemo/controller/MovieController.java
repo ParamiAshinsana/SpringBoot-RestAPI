@@ -13,7 +13,13 @@ public class MovieController {
     private final MovieService movieService;
 
     @PostMapping(value = "/saveMovie")
-    public MovieDTO saveCustomer(@RequestBody MovieDTO movieDTO){
+    public MovieDTO saveMovie(@RequestBody MovieDTO movieDTO){
         return movieService.saveMovie(movieDTO);
+    }
+
+    @PutMapping(value = "/updateMovie/{id}")
+    public void updateMovie(@RequestBody MovieDTO movieDTO, @PathVariable ("id") String id){
+        movieService.updateMovie(id,movieDTO);
+        System.out.println("Movie Updated!");
     }
 }
