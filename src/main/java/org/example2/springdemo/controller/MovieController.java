@@ -1,10 +1,9 @@
 package org.example2.springdemo.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.example2.springdemo.dto.MovieDTO;
 import org.example2.springdemo.service.MovieService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
@@ -12,4 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class MovieController {
     private final MovieService movieService;
+
+    @PostMapping(value = "/saveMovie")
+    public MovieDTO saveCustomer(@RequestBody MovieDTO movieDTO){
+        return movieService.saveMovie(movieDTO);
+    }
 }
