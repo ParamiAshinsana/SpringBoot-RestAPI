@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface MovieService extends JpaRepository<MovieEntity, String> {
+public interface MovieService{
     MovieDTO saveMovie(MovieDTO movieDTO);
     List<MovieDTO> getAllMovies();
     MovieDTO getSelectedMovie(String id);
