@@ -1,10 +1,12 @@
 package org.example2.springdemo.service;
 
 import org.example2.springdemo.dto.MovieDTO;
+import org.example2.springdemo.entity.MovieEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface MovieService {
+public interface MovieService extends JpaRepository<MovieEntity, String> {
     MovieDTO saveMovie(MovieDTO movieDTO);
     List<MovieDTO> getAllMovies();
     MovieDTO getSelectedMovie(String id);
