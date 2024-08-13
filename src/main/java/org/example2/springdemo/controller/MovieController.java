@@ -3,6 +3,8 @@ package org.example2.springdemo.controller;
 import lombok.RequiredArgsConstructor;
 import org.example2.springdemo.dto.MovieDTO;
 import org.example2.springdemo.service.MovieService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,5 +32,10 @@ public class MovieController {
     @GetMapping(value = "/getAllMovies")
     List<MovieDTO> getAllMovie(){
         return movieService.getAllMovies();
+    }
+    @GetMapping("/getSelectedMovie/{id}")
+    ResponseEntity<MovieDTO> getSelectedMovies(@PathVariable ("id") String id){
+        MovieDTO selectedMovie = movieService.getSelectedMovie(id);
+        return selectedMovie != null ? ResponseEntity.ok(selectedMovie) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 }
