@@ -45,9 +45,14 @@ public class MovieServiceIMPL implements MovieService {
 
     @Override
     public void updateMovie(String id, MovieDTO movieDTO) {
+        System.out.println("4");
         Optional<MovieEntity> tmpMovie = movieRepository.findById(id);
+        System.out.println("5");
         if(!tmpMovie.isPresent()) throw new NotFoundException("Movie not found");
+        System.out.println("6");
         tmpMovie.get().setMovieTitle(movieDTO.getMovieTitle());
+        System.out.println("7");
         tmpMovie.get().setDirector(movieDTO.getDirector());
+        System.out.println("8");
     }
 }
