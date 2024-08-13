@@ -5,6 +5,8 @@ import org.example2.springdemo.dto.MovieDTO;
 import org.example2.springdemo.service.MovieService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin
 @RestController
 @RequestMapping("api/v1/movie")
@@ -24,5 +26,9 @@ public class MovieController {
         System.out.println("2");
         System.out.println("Movie Updated!");
         System.out.println("3");
+    }
+    @GetMapping(value = "/getAllMovies")
+    List<MovieDTO> getAllMovie(){
+        return movieService.getAllMovies();
     }
 }
