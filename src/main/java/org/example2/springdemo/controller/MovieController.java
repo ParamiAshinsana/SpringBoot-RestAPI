@@ -38,4 +38,8 @@ public class MovieController {
         MovieDTO selectedMovie = movieService.getSelectedMovie(id);
         return selectedMovie != null ? ResponseEntity.ok(selectedMovie) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
+    @DeleteMapping("/deleteMovie/{id}")
+    public void deleteMovies(@PathVariable ("id") String id){
+        movieService.deleteMovie(id);
+    }
 }
