@@ -30,7 +30,7 @@ public class MovieServiceIMPL implements MovieService {
 
     @Override
     public List<MovieDTO> getAllMovies() {
-        return null;
+        return movieMapping.toMovieDTOList(movieRepository.findAll());
     }
 
     @Override
