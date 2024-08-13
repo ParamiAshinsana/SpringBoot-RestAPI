@@ -19,7 +19,10 @@ public class MovieController {
 
     @PutMapping(value = "/updateMovie/{id}")
     public void updateMovie(@RequestBody MovieDTO movieDTO, @PathVariable ("id") String id){
+        System.out.println("1");
         movieService.updateMovie(id,movieDTO);
+        System.out.println("2");
         System.out.println("Movie Updated!");
+        System.out.println("3");
     }
 }
