@@ -35,7 +35,8 @@ public class MovieServiceIMPL implements MovieService {
 
     @Override
     public MovieDTO getSelectedMovie(String id) {
-        return null;
+        if(!movieRepository.existsById(id)) throw new NotFoundException("Movie not found(GETALL)");
+        return movieMapping.toMovieDTO(movieRepository.getReferenceById(id));
     }
 
     @Override
