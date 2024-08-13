@@ -41,7 +41,8 @@ public class MovieServiceIMPL implements MovieService {
 
     @Override
     public void deleteMovie(String id) {
-
+        if(!movieRepository.existsById(id)) throw new NotFoundException("Movie not found");
+        movieRepository.deleteById(id);
     }
 
     @Override
